@@ -1,0 +1,131 @@
+module status {
+
+    namespace "urn:opencpe:status";
+
+    prefix "ocpe-status";
+
+    organization
+        "Deutsche Telekom AG";
+
+    contact
+        "Landgrabenweg 151
+        53227 Bonn, Germany";
+
+    description
+        "This module defines various OpenWrt status information used in the TeraStream home gateway project.";
+
+    revision "2015-12-01" {
+        description
+            "Version 0.1.0 -- Initial version.";
+    }
+
+   container "board" {
+       leaf "kernel" {
+           type "string";
+       }
+       leaf "hostname" {
+           type "string";
+       }
+       leaf "system" {
+           type "string";
+       }
+       container "release" {
+           leaf "distribution" {
+               type "string";
+           }
+           leaf "version" {
+               type "string";
+           }
+           leaf "revision" {
+               type "string";
+           }
+           leaf "codename" {
+               type "string";
+           }
+           leaf "target" {
+               type "string";
+           }
+           leaf "description" {
+               type "string";
+           }
+       }
+   }
+
+   container "dhcp" {
+       list "dhcp-leases" {
+           key "id";
+
+           leaf "lease-expirey" {
+               type "string";
+           }
+           leaf "mac" {
+               type "string";
+           }
+           leaf "ip" {
+               type "string";
+           }
+           leaf "name" {
+               type "string";
+           }
+           leaf "id" {
+               type "string";
+           }
+       }
+   }
+
+   container "wifi" {
+       list "wifi-device" {
+           key "name";
+
+           leaf "name" {
+               type "string";
+           }
+           leaf "type" {
+               type "string";
+           }
+           leaf "channel" {
+               type "string";
+           }
+           leaf "macaddr" {
+               type "string";
+           }
+           leaf "hwmode" {
+               type "string";
+           }
+           leaf "disabled" {
+               type "string";
+           }
+       }
+       list "wifi-iface" {
+           key "name";
+
+           leaf "name" {
+               type "string";
+           }
+           leaf "device" {
+               type "string";
+           }
+           leaf "network" {
+               type "string";
+           }
+           leaf "mode" {
+               type "string";
+           }
+           leaf "ssid" {
+               type "string";
+           }
+           leaf "encryption" {
+               type "string";
+           }
+           leaf-list "maclist" {
+               type "string";
+           }
+           leaf "macfiter" {
+               type "string";
+           }
+           leaf "key" {
+               type "string";
+           }
+       }
+   }
+}
